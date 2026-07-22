@@ -1,0 +1,12 @@
+charset-normalizer
+markdown2
+pandas
+pillow
+prompt-toolkit
+pyautogui
+python-docx
+playwright
+requests
+selenium
+tkhtmlview
+webdriver-manager
