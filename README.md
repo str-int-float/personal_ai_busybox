@@ -1,2 +1,74 @@
-# personal_ai_busybox
-An AI Agent platform built specifically for personal use, allowing users to launch with a single double-click — no complex configuration required. It comes with built-in everyday tools. Optimized for lightweight models commonly used on personal computers, it requires only a ‌minimal 16K context window‌ to run.
+# personal-ai-busybox
+
+专为个人使用打造的AI Agent平台，用户可双击一键启动，无需复杂配置。内置日常工具。适配个人电脑常用小模型，运行所需上下文窗口较小（最低16K即可运行）。
+
+## 功能特性
+
+* ✅ **使用简单** — 双击 `my_ai.py`直接可用所有功能。（后续整合到exe中，甚至无需手动使用install.bat）
+* ✅ **配置简单** — 没有多个配置层级，只改一处绝对能生效。
+* ✅ **内置办公、网络、提醒与系统工具** — 满足普通用户日常需求（后续增加一键安装插件扩展）。
+* ✅ **文档功能强** — AI直接通过VBA修改文档，轻松实现复杂操作。
+* ✅ **记忆能力强** — 多层级记忆和海马体设计，让模型和用户越来越熟
+* ✅ **适配低资源小模型** — 提示词与工具集经过精简，适合小模型、小上下文窗口。
+* ✅ **复用本地模型** — 通过替换Messages列表，复用本地模型实现多个功能。
+* ✅ **隐私安全** — 数据不离本地，同时有基本的安全审计功能。
+* ❓ **远程使用功能** — 未来计划接入聊天平台（暂不打算接入群聊）
+
+
+## 运行依赖（重要）
+
+1. Windows 11 及以上系统（后续计划支持其他操作系统）
+2. Microsoft Office 2019 及以上版本（后续计划兼容其它主流办公软件）。缺少则无法使用文档处理工具。
+3. Ollama 作为本地大模型后端。
+4. Python 3 仅开发阶段需要。后期打包为exe后，使用者无需单独安装。
+5. 显卡显存 ≥12GB（默认模型）且支持 CUDA。也可用CPU运行，但速度较慢。
+
+
+## 快速安装
+
+1. 请先准备好所需系统和软件，至少要有 Windows 、Python 和 Ollama （官网下载）
+2. 双击 `install.bat`，自动完成全部环境配置
+
+
+## 启动平台方法
+
+双击运行 my_ai.py （后续计划打包为独立exe，同时将安装程序整合进EXE，实现真正一键运行）
+
+
+## 配置说明
+
+使用记事本或代码编辑器打开py文件，文件顶部为自定义配置项，按需修改即可，可不修改使用默认参数（未来会迁移至 setting.ini），部分参数示例：
+
+|配置项|说明|默认值|
+|-|-|-|
+|`OLLAMA_URL`|本地 OLLAMA 地址|`"http://localhost:11434/api/chat"`|
+|`MODEL`|采用的大模型|`"gemma4:12b"`|
+|`SCREEN_SAVE_PATH`|截图工具临时文件|`APP_ROOT / "screen.png"`|
+|`MEMORY_PATH`|长期记忆文件|`APP_ROOT / "memory.txt"`|
+|`RAG_FILE_PATH`|RAG 知识库文件（以后升级为向量版本）|`APP_ROOT / "rag.txt"`|
+|`BROWSER_DOWNLOADED_FOLDER`|浏览器下载文件|`APP_ROOT / "download"`|
+|`ALLOW_HIPPO`|是否启动记忆自动管理机制（强制几轮对话后读写记忆）|`True`|
+|`ORIGIN_SYSTEM_CONTENT_COLDSTART`|初始化阶段的系统提示文本|`f" …… "`|
+
+
+## 程序结构
+
+本项目采用面向过程编程，整体为单文件结构，以后可能改成面向对象。详细程序架构参阅 ARCH.md。
+
+
+## 开发状态
+
+暂时先用TK做前端，主要功能和工具已经能跑通，但是还有BUG。文档现在能看，但是不能写，浏览器能做简单操作，还缺一些操控。插件和远程使用暂时就是个计划。
+
+
+## 开源协议
+
+Apache 2.0 协议，详见 LICENSE.md
+
+## 致谢
+
+专业学者和工程师，是你们让大模型走进现实。
+开源社区提供的各类软件和库，让个人快速开发成为可能。
+未来所有贡献者与使用者！
+本项目作者为编程新手，仍在持续学习当中，代码存在诸多不完善之处，恳请大家多多包涵，使用中遇到问题欢迎反馈。
+
